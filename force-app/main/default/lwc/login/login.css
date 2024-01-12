@@ -1,0 +1,155 @@
+.input-group {
+    /* Group 1 */
+
+    position: absolute;
+    width: 220px;
+    height: 184px;
+    left: 163px;
+    top: 76px;
+    /*flex-shrink: 0;*/
+}
+.text_box .slds-input {
+    /* Input
+
+    Text inputs are used for freeform data entry
+    */
+
+    position: absolute;
+    width: 220px;
+    height: 52px;
+    left: 163px;
+    top: 152px;
+
+
+
+    /* Field */
+
+    box-sizing: border-box;
+
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 20px;
+    bottom: 0px;
+
+    /* Foundation/Gray/Neutral-100 */
+    background: #FFFFFF;
+    /* Foundation/Gray/Neutral-50 */
+    border: 1px solid #747474;
+    border-radius: 4px;
+
+
+    /* Text */
+
+    position: absolute;
+    height: 20px;
+    left: 12px;
+    right: 12px;
+    top: 6px;
+
+    /* 03 - Body/Default */
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height, or 154% */
+
+    /* Text / Placeholder */
+    color: #747474;
+
+
+
+    /* Field Label */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+
+    position: absolute;
+    width: 45px;
+    height: 18px;
+    left: 0px;
+    top: 0px;
+
+
+
+    /* Label Text */
+
+    width: 45px;
+    height: 18px;
+
+    /* 02 - Label / Default */
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    /* identical to box height, or 150% */
+
+    /* Text / Weak */
+    color: #444444;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+.button_box .slds-button {
+    /* Button
+
+    Buttons are clickable items used to perform an action.
+    */
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1px 16px;
+    gap: 10px;
+
+    position: absolute;
+    width: 220px;
+    height: 32px;
+    left: 163px;
+    top: 228px;
+
+    /* Foundation/Gray/Neutral-100 */
+    background: #FFFFFF;
+    /* Foundation/Blue/Blue-50 */
+    border: 1px solid #0176D3;
+    border-radius: 4px;
+
+
+    /* Label */
+
+    width: 24px;
+    height: 20px;
+
+    /* 03 - Body/Default */
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height, or 154% */
+    text-align: center;
+
+    /* Foundation/Blue/Blue-50 */
+    color: #0176D3;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}

@@ -4,13 +4,16 @@
             <div class="card">
                 <div class="content-container">
                     <div class="content">
-                        <lightning-tabset>
-                            <lightning-tab label="로그인">
-                            </lightning-tab>
-                            <lightning-tab label="회원가입">
-                            </lightning-tab>
-                            <lightning-tab label="비밀번호 찾기">
-                            </lightning-tab>
+                        <lightning-tabset>                           
+                                <lightning-tab label="로그인">
+                                    <c-login></c-login>
+                                </lightning-tab>
+                                <lightning-tab label="회원가입">
+                                    <c-signup></c-signup>
+                                </lightning-tab>
+                                <lightning-tab label="비밀번호 찾기">
+                                    <c-password></c-password>
+                                </lightning-tab>
                         </lightning-tabset>
                     </div>
                 </div>

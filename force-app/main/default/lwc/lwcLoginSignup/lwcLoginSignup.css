@@ -1,13 +1,9 @@
-html, body {
-    width: 100%;
-    height: 100%;
-}
 .login-wrapper {
     /* 로그인 */
 
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 1675px;
+    height: 720px;
 
     background: #FFFFFF;
 }
@@ -24,7 +20,7 @@ html, body {
     position: absolute;
     width: 596px;
     height: 278px;
-    left: 353px;
+    left: 540px;
     top: 131px;
 }
 .card {
@@ -79,6 +75,189 @@ html, body {
     flex-grow: 0;
     z-index: 1;
 }
+.tabs-container {
+    /* Tabs
+
+    Tabs keeps related content in a single container that is shown and hidden through navigation.
+    */
+
+    position: absolute;
+    width: 560px;
+    height: 40px;
+    left: 18px;
+    top: 18px;
+
+    /* Foundation/Gray/Neutral-100 */
+    background: #FFFFFF;
+
+
+    /* Border */
+
+    position: absolute;
+    height: 1px;
+    left: 0%;
+    right: 0%;
+    bottom: 0px;
+
+    /* Foundation/Gray/Neutral-80 */
+    background: #C9C9C9;
+
+
+    /* Tabs */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+
+    position: absolute;
+    width: 228px;
+    height: 40px;
+    left: 0px;
+    top: 0px;
+}
+.tabs-login {
+    /* Tab */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 12px;
+    gap: 8px;
+
+    width: 60px;
+    height: 40px;
+
+    background: #FFFFFF;
+    /* 05 - Tab / Selected */
+    box-shadow: inset 0px -2px 0px #1589EE;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* Text */
+
+    width: 36px;
+    height: 20px;
+
+    /* 03 - Body / Bold */
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height, or 154% */
+
+    /* Text / Default */
+    color: #181818;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.tabs-signup {
+    /* Tab */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 12px;
+    gap: 8px;
+
+    width: 72px;
+    height: 40px;
+
+    /* Foundation/Gray/Neutral-100 */
+    background: #FFFFFF;
+    /* 05 - Tab/Default */
+    box-shadow: inset 0px -1px 0px #747474;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+
+    /* Text */
+
+    width: 48px;
+    height: 20px;
+
+    /* 03 - Body/Default */
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height, or 154% */
+
+    /* Text / Default */
+    color: #181818;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.tabs-password {
+    /* Tab */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 12px;
+    gap: 8px;
+
+    width: 96px;
+    height: 40px;
+
+    /* Foundation/Gray/Neutral-100 */
+    background: #FFFFFF;
+    /* 05 - Tab/Default */
+    box-shadow: inset 0px -1px 0px #747474;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+
+
+    /* Text */
+
+    width: 72px;
+    height: 20px;
+
+    /* 03 - Body/Default */
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height, or 154% */
+
+    /* Text / Default */
+    color: #181818;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+
+
 
 
 
