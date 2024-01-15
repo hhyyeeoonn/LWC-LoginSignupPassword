@@ -5,151 +5,65 @@
     width: 220px;
     height: 184px;
     left: 163px;
-    top: 76px;
-    /*flex-shrink: 0;*/
+    top: 18px;
+    bottom: 18px;
+    flex-shrink: 0;
 }
-.text_box .slds-input {
-    /* Input
+.slds-form-element {
+    margin-bottom: 24px;
+}
 
-    Text inputs are used for freeform data entry
-    */
+.input-id-password .slds-form-element__label {
 
-    position: absolute;
-    width: 220px;
-    height: 52px;
-    left: 163px;
-    top: 152px;
-
-
-
-    /* Field */
-
-    box-sizing: border-box;
-
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 20px;
-    bottom: 0px;
-
-    /* Foundation/Gray/Neutral-100 */
-    background: #FFFFFF;
-    /* Foundation/Gray/Neutral-50 */
-    border: 1px solid #747474;
-    border-radius: 4px;
-
-
-    /* Text */
-
-    position: absolute;
-    height: 20px;
-    left: 12px;
-    right: 12px;
-    top: 6px;
-
-    /* 03 - Body/Default */
-    font-family: 'Segoe UI';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 20px;
-    /* identical to box height, or 154% */
-
-    /* Text / Placeholder */
-    color: #747474;
-
-
-
-    /* Field Label */
-
-    /* Auto layout */
     display: flex;
-    flex-direction: row;
     align-items: center;
-    padding: 0px;
     gap: 8px;
+    top: 24px;
 
-    position: absolute;
-    width: 45px;
-    height: 18px;
-    left: 0px;
-    top: 0px;
-
-
-
-    /* Label Text */
-
-    width: 45px;
-    height: 18px;
-
+    color: var(--Text-Weak, #444);
+    font-feature-settings: 'clig' off, 'liga' off;
     /* 02 - Label / Default */
-    font-family: 'Segoe UI';
+    font-family: Segoe UI;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
-    /* identical to box height, or 150% */
-
-    /* Text / Weak */
-    color: #444444;
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-
+    line-height: 18px; /* 150% */
 }
-.button_box .slds-button {
-    /* Button
-
-    Buttons are clickable items used to perform an action.
-    */
-
-    box-sizing: border-box;
-
-    /* Auto layout */
+.input-id-password .slds-input {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 1px 16px;
-    gap: 10px;
-
-    position: absolute;
     width: 220px;
     height: 32px;
-    left: 163px;
-    top: 228px;
+    padding: 6px 12px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 
-    /* Foundation/Gray/Neutral-100 */
-    background: #FFFFFF;
-    /* Foundation/Blue/Blue-50 */
-    border: 1px solid #0176D3;
-    border-radius: 4px;
-
-
-    /* Label */
-
-    width: 24px;
-    height: 20px;
-
+    color: var(--Text-Placeholder, #747474);
+    font-feature-settings: 'clig' off, 'liga' off;
     /* 03 - Body/Default */
-    font-family: 'Segoe UI';
+    font-family: Segoe UI;
+    font-size: 13px;
     font-style: normal;
     font-weight: 400;
-    font-size: 13px;
-    line-height: 20px;
-    /* identical to box height, or 154% */
+    line-height: 20px; /* 153.846% */
+}
+.button-check .slds-button {
+    display: flex;
+    width: 220px;
+    height: 32px;
+    padding: 1px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+
+    color: var(--Foundation-Blue-Blue-50, #0176D3);
     text-align: center;
-
-    /* Foundation/Blue/Blue-50 */
-    color: #0176D3;
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* 03 - Body/Default */
+    font-family: Segoe UI;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 153.846% */
 }
