@@ -35,6 +35,7 @@
     width: 596px;
     height: 278px;
 
+    position: absolute;
     /* Foundation/Gray/Neutral-100 */
     background: #FFFFFF;
     /* Foundation/Gray/Neutral-80 */
@@ -51,6 +52,7 @@
 
 }
 .content-container {
+    position: absolute;
     width: 596px;
     height: 278px;
 
@@ -75,75 +77,65 @@
     flex-grow: 0;
     z-index: 1;
 }
-.tabs-container {
-    /* Tabs
 
-    Tabs keeps related content in a single container that is shown and hidden through navigation.
-    */
+/*
+*****
+tabs
+*****
+*/
 
-    position: absolute;
+.slds-tabs--default__nav, .slds-tabs_default__nav {
     width: 560px;
     height: 40px;
-    left: 18px;
-    top: 18px;
-
+    flex-shrink: 0;
     /* Foundation/Gray/Neutral-100 */
     background: #FFFFFF;
 
 
-    /* Border */
+    background: var(--Foundation-Gray-Neutral-100, #FFF);
 
-    position: absolute;
-    height: 1px;
-    left: 0%;
-    right: 0%;
-    bottom: 0px;
-
-    /* Foundation/Gray/Neutral-80 */
-    background: #C9C9C9;
-
-
-    /* Tabs */
-
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-
-    position: absolute;
-    width: 228px;
-    height: 40px;
-    left: 0px;
-    top: 0px;
+    border-bottom-style: solid;
+    border-bottom-color: #C9C9C9;
 }
-.tabs-login {
-    /* Tab */
-
-    /* Auto layout */
+.slds-tabs_default__item .slds-is-active .slds-has-focus {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    height: 40px;
     padding: 10px 12px;
+    align-items: center;
     gap: 8px;
 
-    width: 60px;
+    background: var(--Foundation-Gray-Neutral-100, #FFF);
+
+    /* 05 - Tab/Default */
+    box-shadow: 0px -1px 0px 0px #747474 inset;
+}
+.slds-tabs_default__item .slds-is-active {
+    display: flex;
     height: 40px;
+    padding: 10px 12px;
+    align-items: center;
+    gap: 8px;
 
-    background: #FFFFFF;
-    /* 05 - Tab / Selected */
-    box-shadow: inset 0px -2px 0px #1589EE;
+    background: var(--Foundation-Gray-Neutral-100, #FFF);
 
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+    /* 05 - Tab/Default */
+    box-shadow: 0px -1px 0px 0px #747474 inset;
+}
+.slds-tabs_default__content .slds-show {
+    display: flex;
+    height: 0px;
+    padding: 0px;
 
 
-    /* Text */
-
-    width: 36px;
-    height: 20px;
+}
+.slds-tabs_default__content .slds-hide {
+    display: flex;
+    height: 0px;
+    padding: 0px;
+}
+a, a:link:not(.slds-button,.slds-dropdown__item>a) {
+    color: var(--Text-Default, #181818);
+    font-feature-settings: 'clig' off, 'liga' off;
 
     /* 03 - Body / Bold */
     font-family: 'Segoe UI';
@@ -152,114 +144,95 @@
     font-size: 13px;
     line-height: 20px;
     /* identical to box height, or 154% */
-
-    /* Text / Default */
-    color: #181818;
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 }
-.tabs-signup {
-    /* Tab */
-
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px 12px;
-    gap: 8px;
-
-    width: 72px;
-    height: 40px;
-
-    /* Foundation/Gray/Neutral-100 */
-    background: #FFFFFF;
-    /* 05 - Tab/Default */
-    box-shadow: inset 0px -1px 0px #747474;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-
-
-    /* Text */
-
-    width: 48px;
-    height: 20px;
+a, a:link(.slds-button,.slds-dropdown__item>a) {
+    color: var(--Text-Default, #181818);
+    font-feature-settings: 'clig' off, 'liga' off;
 
     /* 03 - Body/Default */
     font-family: 'Segoe UI';
+    font-size: 13px;
     font-style: normal;
     font-weight: 400;
-    font-size: 13px;
-    line-height: 20px;
-    /* identical to box height, or 154% */
-
-    /* Text / Default */
-    color: #181818;
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+    line-height: 20px; /* 153.846% */
 }
-.tabs-password {
-    /* Tab */
 
-    /* Auto layout */
+
+
+/*
+*****
+로그인 페이지 
+*****
+*/
+.input-group {
+    /* Group 1 */
+
+    position: absolute;
+    width: 220px;
+    height: 184px;
+    left: 163px;
+    top: 18px;
+    bottom: 18px;
+    flex-shrink: 0;
+}
+.slds-form-element {
+    margin-bottom: 24px;
+}
+
+.input-id-password .slds-form-element__label {
+
     display: flex;
-    flex-direction: row;
     align-items: center;
-    padding: 10px 12px;
     gap: 8px;
+    top: 24px;
 
-    width: 96px;
-    height: 40px;
+    color: var(--Text-Weak, #444);
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* 02 - Label / Default */
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+}
+.input-id-password .slds-input {
+    display: flex;
+    width: 220px;
+    height: 32px;
+    padding: 6px 12px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 
-    /* Foundation/Gray/Neutral-100 */
-    background: #FFFFFF;
-    /* 05 - Tab/Default */
-    box-shadow: inset 0px -1px 0px #747474;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 2;
-    flex-grow: 0;
-
-
-    /* Text */
-
-    width: 72px;
-    height: 20px;
-
+    color: var(--Text-Placeholder, #747474);
+    font-feature-settings: 'clig' off, 'liga' off;
     /* 03 - Body/Default */
     font-family: 'Segoe UI';
+    font-size: 13px;
     font-style: normal;
     font-weight: 400;
-    font-size: 13px;
-    line-height: 20px;
-    /* identical to box height, or 154% */
-
-    /* Text / Default */
-    color: #181818;
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-
+    line-height: 20px; /* 153.846% */
 }
+.button-check .slds-button {
+    display: flex;
+    width: 220px;
+    height: 32px;
+    padding: 1px 16px;
+    margin-bottom: 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
 
-
-
-
-
-
+    color: var(--Foundation-Blue-Blue-50, #0176D3);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* 03 - Body/Default */
+    font-family: 'Segoe UI';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 153.846% */
+}
 
 

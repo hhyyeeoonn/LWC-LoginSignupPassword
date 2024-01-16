@@ -1,13 +1,11 @@
 import { LightningElement, api } from 'lwc';
 import { loadStyle } from 'lightning/platformResourceLoader';
-import LOGIN_CSS from '@salesforce/resourceUrl/lwcLoginCss';
+import LOGINSIGNUPPASSWORD_CSS from '@salesforce/resourceUrl/lwcLoginSignupPasswordCss';
 
 export default class Login extends LightningElement {
     @api tabLogin;
 
-    
     renderedCallback () {
-        Promise.all ([loadStyle (this, LOGIN_CSS)]);
+        Promise.all ([loadStyle (this, LOGINSIGNUPPASSWORD_CSS)]);
     } 
-    
 }
