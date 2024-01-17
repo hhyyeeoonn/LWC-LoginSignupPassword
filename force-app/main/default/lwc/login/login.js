@@ -14,12 +14,14 @@ export default class Login extends LightningElement {
 
     handleblurId(e) {
         let testEmail = RegExp('[a-z0-9]+@[a-z0-9]+\.[a-z]{1,2}');
-        this.loginId = this.template.querySelector('.loginId').value;
-        let idValid = testEmail.test(idValid);
+        let $loginId = this.template.querySelector('.loginId');
+        let idValid = testEmail.test($loginId.value);
         if(!idValid) {
-            
+            $loginId.setCustomValidity("아이디를 올바르게 입력해 주세요.");
+        } else {
+            $loginId.setCustomValidity("");
         }
-        
+        $loginId.reportValidity();
         
 
     }
