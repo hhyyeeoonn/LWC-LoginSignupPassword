@@ -1,0 +1,29 @@
+<template>
+    <div class="alert-box-login"> <!--style="display:none;"-->
+        <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+            <span class="slds-assistive-text">error</span>
+            <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed">
+                <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+                </svg>
+            </span>
+                <template lwc:if={isLoginError}>
+                    <h2>로그인에 실패했습니다.</h2>
+                </template>
+                <template lwc:elseif={isSignupError}>
+                    <h2>이미 가입한 아이디입니다.</h2>
+                </template>
+                <template lwc:elseif={isPasswordError}>
+                    <h2>다시 한 번 확인해 주시기 바랍니다.</h2>
+                </template>
+            <div class="slds-notify__close">
+                <button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" onclick={alertClose} title="Close">
+                <svg class="slds-button__icon" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</template>

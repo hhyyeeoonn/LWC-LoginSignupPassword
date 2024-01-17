@@ -1,0 +1,184 @@
+.custom-content-container {
+    position: absolute;
+    width: 596px;
+    height: 278px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+
+}
+.custom-content {
+    position: absolute;
+    width: 560px;
+    height: 242px;
+    left: 18px;
+    top: 18px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    z-index: 1;
+}
+
+/*
+*****
+tabs
+*****
+*/
+
+.slds-tabs--default__nav, .slds-tabs_default__nav {
+    width: 560px;
+    height: 40px;
+    flex-shrink: 0;
+    /* Foundation/Gray/Neutral-100 */
+    background: #FFFFFF;
+
+
+    background: var(--Foundation-Gray-Neutral-100, #FFF);
+
+    border-bottom-style: solid;
+    border-bottom-color: #C9C9C9;
+}
+.slds-tabs_default__item .slds-is-active .slds-has-focus {
+    display: flex;
+    height: 40px;
+    padding: 10px 12px;
+    align-items: center;
+    gap: 8px;
+
+    background: var(--Foundation-Gray-Neutral-100, #FFF);
+
+    /* 05 - Tab/Default */
+    box-shadow: 0px -1px 0px 0px #747474 inset;
+}
+.slds-tabs_default__item .slds-is-active {
+    display: flex;
+    height: 40px;
+    padding: 10px 12px;
+    align-items: center;
+    gap: 8px;
+
+    background: var(--Foundation-Gray-Neutral-100, #FFF);
+
+    /* 05 - Tab/Default */
+    box-shadow: 0px -1px 0px 0px #747474 inset;
+}
+.slds-tabs_default__content .slds-show {
+    display: flex;
+    height: 0px;
+    padding: 0px;
+
+
+}
+.slds-tabs_default__content .slds-hide {
+    display: flex;
+    height: 0px;
+    padding: 0px;
+}
+a, a:link:not(.slds-button,.slds-dropdown__item>a) {
+    color: var(--Text-Default, #181818);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* 03 - Body / Bold */
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height, or 154% */
+}
+a, a:link(.slds-button,.slds-dropdown__item>a) {
+    color: var(--Text-Default, #181818);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* 03 - Body/Default */
+    font-family: 'Segoe UI';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 153.846% */
+}
+
+
+
+/*
+*****
+로그인 페이지 
+*****
+*/
+.input-group {
+    /* Group 1 */
+
+    position: absolute;
+    width: 220px;
+    height: 184px;
+    left: 163px;
+    top: 18px;
+    bottom: 18px;
+    flex-shrink: 0;
+}
+.input-id-password .slds-form-element {
+    margin-bottom: 24px;
+}
+.input-id-password .slds-form-element__label {
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    top: 24px;
+
+    color: var(--Text-Weak, #444);
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* 02 - Label / Default */
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+}
+.input-id-password .slds-input {
+    display: flex;
+    width: 220px;
+    height: 32px;
+    padding: 6px 12px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    color: var(--Text-Placeholder, #747474);
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* 03 - Body/Default */
+    font-family: 'Segoe UI';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 153.846% */
+}
+.button-check .slds-button {
+    display: flex;
+    width: 220px;
+    height: 32px;
+    padding: 1px 16px;
+    margin-bottom: 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+
+    color: var(--Foundation-Blue-Blue-50, #0176D3);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* 03 - Body/Default */
+    font-family: 'Segoe UI';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 153.846% */
+}
+
+

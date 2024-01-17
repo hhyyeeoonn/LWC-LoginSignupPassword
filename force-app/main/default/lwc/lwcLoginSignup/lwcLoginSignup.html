@@ -1,30 +1,13 @@
 <template>
-    <div class="login-wrapper">
-        
-        <div class="alert-box"> <!--style="display:none;"-->
-            <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
-                <span class="slds-assistive-text">error</span>
-                <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed">
-                    <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
-                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
-                    </svg>
-                </span>
-                <h2>로그인에 실패했습니다.</h2>
-                <div class="slds-notify__close">
-                    <button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" onclick={alertClose} title="Close">
-                    <svg class="slds-button__icon" aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
-                    </svg>
-                    <span class="slds-assistive-text">Close</span>
-                    </button>
-                </div>
-            </div>
+    <div class="custom-login-wrapper">
+        <div class="child-alert">
+            <c-alert></c-alert>
         </div>
 
-        <div class="card-container">
-            <div class="card">
-                <div class="content-container">
-                    <div class="content">
+        <div class="custom-card-container">
+            <div class="custom-card">
+                <div class="custom-content-container">
+                    <div class="custom-content">
                         <lightning-tabset>                           
                                 <lightning-tab class="tab-one" label="로그인">
                                     <c-login></c-login>
