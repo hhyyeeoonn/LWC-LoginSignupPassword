@@ -1,26 +1,64 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, wire, track } from 'lwc';
+import LSP_CHANNEL from "@salesforce/messageChannel/LoginSignupPassword__c";
+//import { subscribe, MessageContext } from 'lightning/messageService';
+import { subscribe, unsubscribe, APPLICATION_SCOPE, MessageContext } from 'lightning/messageService'; 
 
 export default class Alert extends LightningElement {
+    @wire(MessageContext) messageContext;
     
-    errorType;
+    subscription = null;
+    alertType = '';
+    isAlertExist = false;
 
-    isLoginError = false;
-    isSignupError = false;
-    isPasswordError = false;
+    isUnknownAlert = false;
+    isLoginAlert = false;
+    isSignupAlert = false;
+    isPasswordAlert = false;
 
     connectedCallback() {
-        resultErrorType(this.errorType);
+        this.handleSubscribe();
     }
 
-    resultErrorType(errorType) {
-        if(!errorType && errorType !== null) {
-            this.isLoginError = errorType === 'loginError';
-            this.isSignupError = errorType === 'signupError';
-            this.isPasswordError = errorType === 'passwordError';
+    /*
+    disconnectedCallback() {
+        this.unsubscribeToMessageChannel();
+    }
+    */
+    
+    handleSubscribe() {
+        if (this.subscription) {
+            console.log ('*** fail');
+            return;
+        }
+
+        // message : 구독자에게 게시된 메시지를 포함하는 직렬화 가능한 JSON 개체임 메시지에 함수나 심볼을 포함할 수 없다
+        this.subscription = subscribe(this.messageContext, LSP_CHANNEL, (message) => {
+            this.alertType = message.alertType;
+            this.resultAlertType(this.alertType);
+            console.log ('***** alert.js message.alertType : ' + message.alertType);
+        }, {scope: APPLICATION_SCOPE},);
+    }
+
+    resultAlertType(type) {
+        if(type !== '' && type !== null) {
+            this.isAlertExist = true;
+            this.isUnknownAlert = type === 'unknownAlert';
+            this.isLoginAlert = type === 'loginAlert';
+            this.isSignupAlert = type === 'signupAlert';
+            this.isPasswordAlert = type === 'passwordAlert';
+        } else {
+            this.isAlertExist = false;
         }
     }
-    
+
+    unsubscribeToMessageChannel() {
+        unsubscribe(this.subscription);
+        this.subscription = null;
+    }
+
+
     alertClose() {
-        this.template.querySelector('.alert-box').style.display = 'none';
+        //this.template.querySelector('.alert-box').style.display = 'none';
+        this.isAlertExist = false;
     }
 }

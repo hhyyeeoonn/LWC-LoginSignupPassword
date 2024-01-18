@@ -1,3 +1,56 @@
+.custom-login-wrapper {
+    /* 로그인 */
+
+    position: relative;
+    width: 1675px;
+    height: 720px;
+
+    background: #FFFFFF;
+}
+.custom-card-container {
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    isolation: isolate;
+
+    position: absolute;
+    width: 596px;
+    height: 278px;
+    left: 540px;
+    top: 131px;
+}
+.custom-card {
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: 596px;
+    height: 278px;
+
+    position: absolute;
+    /* Foundation/Gray/Neutral-100 */
+    background: #FFFFFF;
+    /* Foundation/Gray/Neutral-80 */
+    border: 1px solid #C9C9C9;
+    /* 04 - Card / Default */
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+
+}
 .custom-content-container {
     position: absolute;
     width: 596px;
