@@ -157,8 +157,6 @@ a, a:link(.slds-button,.slds-dropdown__item>a) {
     line-height: 20px; /* 153.846% */
 }
 
-
-
 /*
 *****
 로그인 페이지 
@@ -175,7 +173,7 @@ a, a:link(.slds-button,.slds-dropdown__item>a) {
     bottom: 18px;
     flex-shrink: 0;
 }
-.input-id-password .slds-form-element {
+.slds-form-element {
     margin-bottom: 24px;
 }
 .input-id-password .slds-form-element__label {
@@ -233,5 +231,3 @@ a, a:link(.slds-button,.slds-dropdown__item>a) {
     font-weight: 400;
     line-height: 20px; /* 153.846% */
 }
-
-

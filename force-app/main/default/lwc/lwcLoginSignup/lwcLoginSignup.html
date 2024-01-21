@@ -9,14 +9,20 @@
                 <div class="custom-content-container">
                     <div class="custom-content">
                         <lightning-tabset>                           
-                                <lightning-tab class="tab-one" label="로그인">
-                                    <c-login></c-login>
+                                <lightning-tab class="tab-one"
+                                                label="로그인"
+                                                onclick={clickTabOne}>
+                                    <c-login tab-value={tabValue}></c-login>
                                 </lightning-tab>
-                                <lightning-tab class="tab-two" label="회원가입">
-                                    <c-signup></c-signup>
+                                <lightning-tab class="tab-two"
+                                                label="회원가입"
+                                                onclick={clickTabTwo}>
+                                    <c-signup tab-value={tabValue}></c-signup>
                                 </lightning-tab>
-                                <lightning-tab class="tab-three" label="비밀번호 찾기">
-                                    <c-password></c-password>
+                                <lightning-tab class="tab-three" 
+                                                label="비밀번호 찾기"
+                                                onclick={clickTabThree}>
+                                    <c-password tab-value={tabValue}></c-password>
                                 </lightning-tab>
                         </lightning-tabset>
                     </div>

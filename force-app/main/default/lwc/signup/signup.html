@@ -1,3 +1,10 @@
 <template>
-    <div><p>회원가입 탭입니다.</p></div>
+    <div class="input-group" data-tab-value={currentTabValue}>
+        <lightning-input class="input-id-password signupId" type="email" maxlength="100" label="아이디" placeholder="아이디를 입력해 주세요."
+                        onblur={handleBlurId}></lightning-input>
+        <lightning-input class="input-id-password signupPassword" type="password" label="패스워드" 
+                        placeholder="패스워드를 입력해 주세요."
+                        onblur={handleBlurPassword}></lightning-input>
+        <lightning-button variant="brand-outline" class="button-check" type="submit" onclick={handleSubmit} label="확인"></lightning-button>
+    </div>
 </template>
