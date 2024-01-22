@@ -8,7 +8,9 @@ import { NavigationMixin } from 'lightning/navigation';
 
 export default class Login extends NavigationMixin(LightningElement) {
     @wire(MessageContext) messageContext;
-    @api tabLogin;
+    @api tabValue;
+
+    currentTabValue = '';
 
     loginInfo = {
         loginId : 'hwigyeom.kim@dkbmc.com',
@@ -26,7 +28,7 @@ export default class Login extends NavigationMixin(LightningElement) {
         let $loginId = this.template.querySelector('.loginId');
         let idValid = testEmail.test($loginId.value);
         if(!idValid) {
-            $loginId.style = 'margin-bottom: 5px';
+            $loginId.style = 'margin-bottom: 4px';
             $loginId.setCustomValidity("아이디를 올바르게 입력해 주세요.");
         } else {
             $loginId.style = 'margin-bottom: 24px';

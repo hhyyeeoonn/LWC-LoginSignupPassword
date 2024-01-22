@@ -48,12 +48,21 @@ export default class Signup extends NavigationMixin(LightningElement) {
         Promise.all([loadStyle (this, LOGINSIGNUPPASSWORD_CSS)]);
     }
 
+    handleContainerCss(passwordVaild) {
+        let $card =  this.template.querySelector('.custom-card');
+        if(!passwordVaild) {
+            $card.style.height = '298px';
+        } else {
+            $card.style.height = '278px';        
+        }
+    }
+
     handleBlurId() {
         const testEmail = RegExp('[a-z0-9]+@[a-z0-9]+\.[a-z]{1,2}');
         let $signupId = this.template.querySelector('.signupId');
         let idValid = testEmail.test($signupId.value);
         if(!idValid) {
-            $signupId.style = 'margin-bottom: 5px';
+            $signupId.style = 'margin-bottom: 4px';
             $signupId.setCustomValidity("아이디를 올바르게 입력해 주세요.");
         } else {
             $signupId.style = 'margin-bottom: 24px';
@@ -63,15 +72,21 @@ export default class Signup extends NavigationMixin(LightningElement) {
     }
 
     handleBlurPassword() {
+        //let $card =  this.template.querySelector('.custom-card');
+        
         const testPW = RegExp('(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{1,10}');
         let $signupPassword = this.template.querySelector('.signupPassword');
         let passwordVaild = testPW.test($signupPassword.value);
 
         if(!passwordVaild) {
+            //$card.style.height = '298px';
+            this.handleContainerCss(passwordVaild);
             $signupPassword.style = 'margin-bottom: 0px';
             $signupPassword.setCustomValidity(`
                                 패스워드는 소문자, 대문자, 숫자, 특수문자를 조합해야합니다.`)
         } else {
+            //$card.style.height = '278px';
+            handleContainerCss(passwordVaild);
             $signupPassword.style = 'margin-bottom: 24px';
             $signupPassword.setCustomValidity('');
         }
@@ -94,7 +109,7 @@ export default class Signup extends NavigationMixin(LightningElement) {
         console.log('***** signup.js message.successType: ' + message.successType);
         publish(this.messageContext, SUCCESS_CHANNEL, message);
     }
-    
+
     isInputCorrect() {
         let $signupId = this.template.querySelector('.signupId');
         let $signupPassword = this.template.querySelector('.signupPassword');
@@ -130,19 +145,25 @@ export default class Signup extends NavigationMixin(LightningElement) {
         }
 
         if(isUsedId && isEmpty) {
+            $signupId.style = 'margin-bottom: 24px';
+            $signupId.setCustomValidity("");
+            $signupId.reportValidity();
             this[NavigationMixin.Navigate]({
                 type : 'comm__namedPage',
                 attributes : {
                     name : 'customSignup__c'
                 },
             });
-        } else {
-            if(!isUsedId) {
-                $signupId.focus();
-            }
+        } else if(!isUsedId) {
+            $signupId.focus();
             console.log('***** isUsedId: ' + isUsedId);
             this.type = 'signupAlert';
             this.handleMessage(this.type);
+        } else if(!isEmpty) {
+            $signupId.focus();
+            $signupId.style = 'margin-bottom: 4px';
+            $signupId.setCustomValidity("아이디를 올바르게 입력해 주세요.");
+            $signupId.reportValidity();
         }
     }
 

@@ -9,18 +9,30 @@ export default class LwcLoginSignup extends LightningElement {
         Promise.all([loadStyle (this, LOGINSIGNUPPASSWORD_CSS)]);
     }
     
-    clickTabOne() {
+    changeCss(value) {
+        const $tab = this.template.querySelector('.custom-card');
+        if(value === 'tabOne' || value === 'tabTwo') {
+            $tab.style.height = '278px';
+        } else {
+            $tab.style.height = '202px';
+        }
+    }
+    
+    activeTabOne(e) {
         this.tabValue = 'tabOne';
-        console.log(this.tabValue);
+        //console.log(this.tabValue);
+        this.changeCss(this.tabValue);        
     }
 
-    clickTabTwo() {
+    activeTabTwo(e) {
         this.tabValue = 'tabTwo';
-        console.log(this.tabValue);
+        //console.log(this.tabValue);
+        this.changeCss(this.tabValue);
     }
 
-    clickTabThree() {
+    activeTabThree(e) {
         this.tabValue = 'tabThree';
-        console.log(this.tabValue);
+        //console.log(this.tabValue);
+        this.changeCss(this.tabValue);
     }
 }

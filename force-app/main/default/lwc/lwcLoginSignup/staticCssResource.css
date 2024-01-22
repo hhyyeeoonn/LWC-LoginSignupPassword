@@ -37,12 +37,12 @@
 
     position: absolute;
     /* Foundation/Gray/Neutral-100 */
-    background: #FFFFFF;
-    /* Foundation/Gray/Neutral-80 */
-    border: 1px solid #C9C9C9;
-    /* 04 - Card / Default */
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
+    border: 1px solid var(--Foundation-Gray-Neutral-80, #C9C9C9);
+    background: var(--Foundation-Gray-Neutral-100, #FFF);
+    
+    /* 04 - Card / Default */
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.10);
 
     /* Inside auto layout */
     flex: none;
@@ -83,7 +83,14 @@
 tabs
 *****
 */
-
+:root {
+    --dxp-g-brand-1: #1589EE;
+}
+body > webruntime-app > lwr-router-container > webruntime-inner-app > dxp_data_provider-user-record-data-provider > dxp_data_provider-data-proxy > dxp_data_provider-user-data-provider > dxp_data_provider-data-proxy > community_byo-scoped-header-and-footer > main > webruntime-router-container > dxp_data_provider-user-record-data-provider > dxp_data_provider-data-proxy > dxp_data_provider-user-data-provider > dxp_data_provider-data-proxy > community_layout-slds-flexible-layout > div > webruntimedesign-region-wrapper > div > webruntimedesign-component-wrapper > div > div.lwc-6jb05p8ont5.actualNode > webruntimedesign-design-component > community_layout-section > div.lwc-6j9an5vbrcd.columns-content > community_layout-column > div > webruntimedesign-region-wrapper > div > webruntimedesign-component-wrapper > div > div.lwc-6jb05p8ont5.actualNode > webruntimedesign-design-component > c-lwc-login-signup > div > div.custom-card-container > div > div > div > lightning-tabset > div > lightning-tab-bar > ul > li.slds-tabs_default__item.slds-is-active.slds-has-focus {
+    background: var(--Foundation-Gray-Neutral-100, #FFF);
+    /* 05 - Tab/Default */
+    box-shadow: 0px -1px 0px 0px #747474 inset;
+}
 .slds-tabs--default__nav, .slds-tabs_default__nav {
     width: 560px;
     height: 40px;
@@ -109,24 +116,19 @@ tabs
     /* 05 - Tab/Default */
     box-shadow: 0px -1px 0px 0px #747474 inset;
 }
-.slds-tabs_default__item .slds-is-active {
+.slds-tabs_default__item .slds-is-active::after {
     display: flex;
+    position: relative;
     height: 40px;
     padding: 10px 12px;
     align-items: center;
     gap: 8px;
-
-    background: var(--Foundation-Gray-Neutral-100, #FFF);
-
-    /* 05 - Tab/Default */
-    box-shadow: 0px -1px 0px 0px #747474 inset;
 }
 .slds-tabs_default__content .slds-show {
     display: flex;
+    position: relative;
     height: 0px;
     padding: 0px;
-
-
 }
 .slds-tabs_default__content .slds-hide {
     display: flex;
@@ -137,24 +139,24 @@ a, a:link:not(.slds-button,.slds-dropdown__item>a) {
     color: var(--Text-Default, #181818);
     font-feature-settings: 'clig' off, 'liga' off;
 
-    /* 03 - Body / Bold */
-    font-family: 'Segoe UI';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 20px;
-    /* identical to box height, or 154% */
-}
-a, a:link(.slds-button,.slds-dropdown__item>a) {
-    color: var(--Text-Default, #181818);
-    font-feature-settings: 'clig' off, 'liga' off;
-
     /* 03 - Body/Default */
     font-family: 'Segoe UI';
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px; /* 153.846% */
+    line-height: 40px; /* 153.846% */
+}
+a, a:link(.slds-button,.slds-dropdown__item>a) {
+    color: var(--Text-Default, #181818);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* 03 - Body / Bold */
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 40px;
+    /* identical to box height, or 154% */
 }
 
 /*
@@ -210,6 +212,65 @@ a, a:link(.slds-button,.slds-dropdown__item>a) {
     font-weight: 400;
     line-height: 20px; /* 153.846% */
 }
+#tab-1, #tab-2, #tab-3 {
+    padding: 0px;
+    /* box-shadow: 0px -3px 0px 0px #747474 inset; */
+    width: 245px;
+    border-top: 1px solid;
+    border-top-color: #747474;
+}
+/*
+#tab-1 > slot > c-login > div > lightning-input.input-id-password.loginId.slds-form-element > lightning-primitive-input-simple > div {
+    display: flex;
+    width: 220px;
+    height: 52px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2px;
+    flex-shrink: 0;
+}
+#tab-2 > slot > c-login > div > lightning-input.input-id-password.loginPassword.slds-form-element > lightning-primitive-input-simple > div {
+    display: flex;
+    width: 220px;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2px;
+    flex-shrink: 0;
+}
+#tab-2 > slot > c-signup > div > lightning-input.input-id-password.signupId.slds-form-element > lightning-primitive-input-simple > div {
+    display: flex;
+    width: 220px;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2px;
+    flex-shrink: 0;
+}
+#tab-3 > slot > c-signup > div > lightning-input.input-id-password.signupPassword.slds-form-element > lightning-primitive-input-simple > div {
+    display: flex;
+    width: 220px;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2px;
+    flex-shrink: 0;
+}
+#tab-3 > slot > c-password > div > lightning-input.input-id-password.passwordId.slds-form-element > lightning-primitive-input-simple > div {
+    display: flex;
+    width: 220px;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2px;
+    flex-shrink: 0;
+}
+*/
 .button-check .slds-button {
     display: flex;
     width: 220px;
