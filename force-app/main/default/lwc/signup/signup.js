@@ -13,8 +13,9 @@ export default class Signup extends NavigationMixin(LightningElement) {
     currentTabValue;
     type = '';
     
-    usedInfo = [
-        {id:'hwigyeom.kim@dkbmc.com', password:'1234qwer!@#$QWER'}
+    userInfo = [
+        {id:'hwigyeom.kim@dkbmc.com', password:'1234qwer!@#$QWER'},
+        {id:'qw@qw.qw', password:'1!qQ'},
     ];
 
     /*
@@ -48,6 +49,7 @@ export default class Signup extends NavigationMixin(LightningElement) {
         Promise.all([loadStyle (this, LOGINSIGNUPPASSWORD_CSS)]);
     }
 
+    /*
     handleContainerCss(passwordVaild) {
         let $card =  this.template.querySelector('.custom-card');
         if(!passwordVaild) {
@@ -56,6 +58,7 @@ export default class Signup extends NavigationMixin(LightningElement) {
             $card.style.height = '278px';        
         }
     }
+    */
 
     handleBlurId() {
         const testEmail = RegExp('[a-z0-9]+@[a-z0-9]+\.[a-z]{1,2}');
@@ -80,25 +83,45 @@ export default class Signup extends NavigationMixin(LightningElement) {
 
         if(!passwordVaild) {
             //$card.style.height = '298px';
-            this.handleContainerCss(passwordVaild);
             $signupPassword.style = 'margin-bottom: 0px';
             $signupPassword.setCustomValidity(`
                                 패스워드는 소문자, 대문자, 숫자, 특수문자를 조합해야합니다.`)
         } else {
             //$card.style.height = '278px';
-            handleContainerCss(passwordVaild);
             $signupPassword.style = 'margin-bottom: 24px';
             $signupPassword.setCustomValidity('');
         }
         $signupPassword.reportValidity();
     }
 
+    /*
+    handleBlurId() {
+        const testEmail = RegExp('[a-z0-9]+@[a-z0-9]+.[a-z]{1,2}');
+        this.validateInput('.signupId', testEmail, '아이디를 올바르게 입력해 주세요.');
+    }
+
+    handleBlurPassword() {
+        const testPW = RegExp('(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{1,10}');
+        this.validateInput('.signupPassword', testPW, '패스워드는 소문자, 대문자, 숫자, 특수문자를 조합해야합니다.');
+    }
+
+    validateInput(selector, testRegex, errorMessage) {
+        const inputField = this.template.querySelector(selector);
+        const isValid = testRegex.test(inputField.value);
+        
+        inputField.style.marginBottom = isValid ? '24px' : '4px';
+        inputField.setCustomValidity(isValid ? '' : errorMessage);
+        inputField.reportValidity();
+    }
+    */
+
+
     handleMessage(type) {
         let message = {
              alertType : type,
         };
-        console.log('**** signup.js type: ' + this.type);
-        console.log('***** signup.js message.alertType: ' + message.alertType);
+        //console.log('**** signup.js type: ' + this.type);
+        //console.log('***** signup.js message.alertType: ' + message.alertType);
         publish(this.messageContext, LSP_CHANNEL, message);
     }
 
@@ -106,15 +129,42 @@ export default class Signup extends NavigationMixin(LightningElement) {
         let message = {
              successType : 'signup',
         };
-        console.log('***** signup.js message.successType: ' + message.successType);
+        //console.log('***** signup.js message.successType: ' + message.successType);
         publish(this.messageContext, SUCCESS_CHANNEL, message);
     }
+
+    /*
+    handleMessage(type) {
+        publish(this.messageContext, LSP_CHANNEL, { alertType: type });
+    }
+
+    handleSuccessMessage() {
+        publish(this.messageContext, SUCCESS_CHANNEL, { successType: 'signup' });
+    }
+    */
+
+    newUser(newId, newPassword) {
+        let newInfo = {
+            id : newId,
+            password : newPassword,
+        }
+        this.userInfo.push(newInfo);
+        //console.log('***** signup.js_this.userInfo:' + JSON.stringify(this.userInfo));
+    }
+
+    /*
+    newUser(newId, newPassword) {
+        this.userInfo.push({ id: newId, password: newPassword });
+    }
+    */
 
     isInputCorrect() {
         let $signupId = this.template.querySelector('.signupId');
         let $signupPassword = this.template.querySelector('.signupPassword');
         let isUsedId = false;
         let isEmpty = false;
+        let allCheckId = [];
+
         /*
         const isInputsAllCorrect = [
             ...this.template.querySelectorAll('.input-id-password'),
@@ -123,15 +173,22 @@ export default class Signup extends NavigationMixin(LightningElement) {
             return validSoFar && inputField.checkValidity();
         }, true);
         */
-        for(let i = 0; i < this.usedInfo.length; ++i) {
-            let usedId = this.usedInfo[i].id;
+        for(let i = 0; i < this.userInfo.length; ++i) {
+            //console.log('***** signup.js_this.userInfo.length: ' + this.userInfo.length);
+            let usedId = this.userInfo[i].id;
+
             if(usedId !== $signupId.value) {
-                isUsedId = true;
+                //console.log('***** usedId: ' + usedId);
+                //console.log('***** $signupId.value: ' + $signupId.value);
+                allCheckId.push(true);
             } else {
-                console.log('is used id');
+                console.log('1');
+                allCheckId.push(false);
             }
         }
-
+        //console.log('allCheckId: ' + JSON.stringify(allCheckId));
+        if(allCheckId.every((a) => a === true)) isUsedId = true;
+        
         if($signupId.value === '' || $signupId.value === null 
                 || $signupPassword.value === '' || $signupPassword === null) {
                     if($signupId.value === '' || $signupId.value === null) {
@@ -145,6 +202,8 @@ export default class Signup extends NavigationMixin(LightningElement) {
         }
 
         if(isUsedId && isEmpty) {
+            this.newUser($signupId.value, $signupPassword.value);
+            console.log('***** signup.js_this.userInfo_newUserIn:' + JSON.stringify(this.userInfo));
             $signupId.style = 'margin-bottom: 24px';
             $signupId.setCustomValidity("");
             $signupId.reportValidity();
@@ -178,4 +237,46 @@ export default class Signup extends NavigationMixin(LightningElement) {
             console.error(exception);
         }
     }
+
+    /*
+    isInputCorrect() {
+        const $signupId = this.template.querySelector('.signupId');
+        const $signupPassword = this.template.querySelector('.signupPassword');
+        const isUsedId = !this.userInfo.every(user => user.id !== $signupId.value);
+        const isEmpty = !$signupId.value || !$signupPassword.value;
+
+        if (isUsedId && isEmpty) {
+            this.newUser($signupId.value, $signupPassword.value);
+            $signupId.style.marginBottom = '24px';
+            $signupId.setCustomValidity('');
+            $signupId.reportValidity();
+
+            this[NavigationMixin.Navigate]({
+                type: 'comm__namedPage',
+                attributes: { name: 'customSignup__c' },
+            });
+        } else if (!isUsedId) {
+            $signupId.focus();
+            this.type = 'signupAlert';
+            this.handleMessage(this.type);
+        } else if (!isEmpty) {
+            $signupId.focus();
+            $signupId.style.marginBottom = '4px';
+            $signupId.setCustomValidity('아이디를 올바르게 입력해 주세요.');
+            $signupId.reportValidity();
+        }
+    }
+
+    handleSubmit() {
+        try {
+            this.handleSuccessMessage();
+            this.isInputCorrect();
+        } catch (exception) {
+            this.type = 'unknownAlert';
+            this.handleMessage(this.type);
+            console.log('catch');
+            console.error(exception);
+        }
+    }
+    */
 }
